@@ -203,33 +203,41 @@
     }
 
     function animateHeroContent(slide) {
+        const tag = slide.querySelector('.hero-tag');
         const title = slide.querySelector('.hero-title');
         const subtitle = slide.querySelector('.hero-subtitle');
-        const btn = slide.querySelector('.btn');
+        const btns = slide.querySelectorAll('.hero-btns .btn');
 
         // Reset animations
-        gsap.set([title, subtitle, btn], { clearProps: 'all' });
+        gsap.set([tag, title, subtitle, ...btns], { clearProps: 'all' });
 
         const tl = gsap.timeline();
         
-        tl.from(title, {
+        tl.from(tag, {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        })
+        .from(title, {
             y: 50,
             opacity: 0,
             duration: 1,
             ease: 'power3.out'
-        })
+        }, '-0.4')
         .from(subtitle, {
             y: 30,
             opacity: 0,
             duration: 0.8,
             ease: 'power3.out'
         }, '-0.4')
-        .from(btn, {
+        .from(btns, {
             y: 20,
             opacity: 0,
             duration: 0.6,
+            stagger: 0.1,
             ease: 'power3.out'
-        }, '-0.4');
+        }, '-0.3');
     }
 
     /**

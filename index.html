@@ -50,42 +50,52 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-slider" id="heroSlider">
-            <div class="hero-slide active" data-bg="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1920&q=80')">
+            <div class="hero-slide active" data-bg="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1920&q=80')">
                 <div class="hero-content">
+                    <span class="hero-tag fade-up">Welcome to Royal Bath</span>
                     <h1 class="hero-title split-text">Timeless Elegance</h1>
                     <p class="hero-subtitle fade-up">Discover our exclusive collection of luxury tiles and sanitary ware</p>
-                    <a href="#collections" class="btn btn-primary fade-up">Explore Collection</a>
+                    <div class="hero-btns fade-up">
+                        <a href="#collections" class="btn btn-primary">Explore Collection</a>
+                        <a href="#about" class="btn btn-outline">Our Story</a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-slide" data-bg="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1920&q=80')">
+            <div class="hero-slide" data-bg="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1920&q=80')">
                 <div class="hero-content">
+                    <span class="hero-tag fade-up">Natural Beauty</span>
                     <h1 class="hero-title split-text">Premium Marble</h1>
                     <p class="hero-subtitle fade-up">Handpicked natural marble for sophisticated spaces</p>
-                    <a href="#products" class="btn btn-primary fade-up">View Products</a>
+                    <div class="hero-btns fade-up">
+                        <a href="#products" class="btn btn-primary">View Products</a>
+                        <a href="#contact" class="btn btn-outline">Get Quote</a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-slide" data-bg="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1920&q=80')">
+            <div class="hero-slide" data-bg="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1920&q=80')">
                 <div class="hero-content">
+                    <span class="hero-tag fade-up">Contemporary Design</span>
                     <h1 class="hero-title split-text">Modern Sanitary</h1>
                     <p class="hero-subtitle fade-up">Contemporary designs for the modern bathroom</p>
-                    <a href="#contact" class="btn btn-primary fade-up">Get in Touch</a>
+                    <div class="hero-btns fade-up">
+                        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                        <a href="#products" class="btn btn-outline">Browse</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="hero-nav">
-            <button class="hero-arrow prev" id="heroPrev" aria-label="Previous slide">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-            </button>
-            <div class="hero-dots" id="heroDots"></div>
-            <button class="hero-arrow next" id="heroNext" aria-label="Next slide">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </button>
-        </div>
-        <div class="scroll-indicator">
+        <button class="hero-arrow prev desktop-only" id="heroPrev" aria-label="Previous slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <button class="hero-arrow next desktop-only" id="heroNext" aria-label="Next slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </button>
+        <div class="hero-dots" id="heroDots"></div>
+        <div class="scroll-indicator desktop-only">
             <span>Scroll</span>
             <div class="scroll-line"></div>
         </div>
