@@ -49,28 +49,36 @@ interface HeroProps {
 export default function Hero({ onSlideChange }: HeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const timelineRef = useRef<GSAPTimeline | null>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      timelineRef.current = gsap.timeline();
-      
-      // Initial slide animation
+    // Initial slide animation - wait for DOM to be ready
+    const timer = setTimeout(() => {
       animateSlide(0);
-    });
+    }, 100);
 
-    return () => ctx.revert();
+    return () => clearTimeout(timer);
   }, []);
 
   const animateSlide = (index: number) => {
-    if (!timelineRef.current) return;
-
-    const elements = gsap.utils.toArray(`[data-slide="${index}"]`);
+    const elements = document.querySelectorAll(`[data-slide="${index}"]`);
     
-    timelineRef.current.fromTo(elements, 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
-    );
+    if (elements.length === 0) return;
+
+    // Kill any existing tweens on these elements
+    gsap.killTweensOf(elements);
+    
+    // Reset state
+    gsap.set(elements, { opacity: 0, y: 30 });
+    
+    // Create new animation
+    gsap.to(elements, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power3.out',
+      clearProps: 'all'
+    });
   };
 
   const nextSlide = useCallback(() => {
@@ -95,10 +103,12 @@ export default function Hero({ onSlideChange }: HeroProps) {
   }, [nextSlide]);
 
   useEffect(() => {
-    if (timelineRef.current) {
-      timelineRef.current.clear();
+    // Small delay to ensure DOM is updated
+    const timer = setTimeout(() => {
       animateSlide(currentSlide);
-    }
+    }, 50);
+    
+    return () => clearTimeout(timer);
   }, [currentSlide]);
 
   return (

@@ -50,7 +50,11 @@ export default function Collections() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(cardsRef.current,
+      const validCards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
+      
+      if (validCards.length === 0) return;
+
+      gsap.fromTo(validCards,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
@@ -64,7 +68,7 @@ export default function Collections() {
           }
         }
       );
-    });
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
